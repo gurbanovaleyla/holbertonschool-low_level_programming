@@ -2,7 +2,7 @@
 
 /**
  * puts2 - prints every other character of a string
- * @str: the string to use
+ * @str: input string
  *
  * Return: void
  */
@@ -15,4 +15,6 @@ void puts2(char *str)
 		_putchar(str[i]);
 		i += 2;
 	}
+
+	_putchar('\n');
 }
