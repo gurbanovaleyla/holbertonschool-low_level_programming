@@ -15,6 +15,9 @@ float age;
 char *owner;
 };
 
+/* Typedef for Task 3 */
+typedef struct dog dog_t;
+
 /* Function prototype for Task 1 */
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
