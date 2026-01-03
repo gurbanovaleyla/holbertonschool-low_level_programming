@@ -2,10 +2,14 @@
 #include <string.h>
 
 /**
- * get_op_func - selects the correct function based on operator
- * @s: operator as string
+ * get_op_func - selects the correct function based on operator string
+ * @s: operator string (+, -, *, /, %)
  *
- * Return: pointer to corresponding function, or NULL if not found
+ * Return: pointer to corresponding function, or NULL if operator is invalid
+ *
+ * Description: This function scans the array of struct op and compares
+ * each operator with the string s. If a match is found, returns
+ * the associated function pointer.
  */
 int (*get_op_func(char *s))(int, int)
 {
