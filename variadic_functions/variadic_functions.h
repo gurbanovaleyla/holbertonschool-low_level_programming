@@ -3,10 +3,13 @@
 
 #include <stdarg.h>
 
-/* Prototype */
+/* Task 0 */
 int sum_them_all(const unsigned int n, ...);
 
-/* _putchar prototype (lazımdır) */
+/* Task 1 */
+void print_numbers(const char *separator, const unsigned int n, ...);
+
+/* _putchar prototype */
 int _putchar(char c);
 
-#endif
+#endif /* VARIADIC_FUNCTIONS_H */
