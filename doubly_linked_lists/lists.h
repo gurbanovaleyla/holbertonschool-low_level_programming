@@ -2,6 +2,9 @@
 #define LISTS_H
 
 #include <stddef.h>
+#include <stdlib.h>
+#include <stdio.h>
+
 /* size_t is defined here */
 
 /**
@@ -29,5 +32,6 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n);
 dlistint_t *add_dnodeint(dlistint_t **head, const int n);
 
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n);
+size_t print_dlistint(const dlistint_t *h);
 
 #endif /* LISTS_H */
