@@ -1,44 +1,35 @@
-#ifndef HASHMAP_H
-#define HASHMAP_H
+#ifndef HASH_TABLES_H
+#define HASH_TABLES_H
 
-#include <stddef.h>
+#include <stdlib.h>
 
-/* =========================
-   Type definitions
-   ========================= */
-
-typedef const char *key_t;   /* keys are strings */
-typedef void *value_t;       /* values are generic */
-
-/* Hash map entry */
-typedef struct hashmap_entry
+/**
+ * struct hash_node_s - Node of a hash table
+ * @key: The key, string. The key is unique in the HashTable
+ * @value: The value corresponding to a key
+ * @next: A pointer to the next node of the List
+ */
+typedef struct hash_node_s
 {
-    key_t key;
-    value_t value;
-    struct hashmap_entry *next;
-} hashmap_entry_t;
+    char *key;
+    char *value;
+    struct hash_node_s *next;
+} hash_node_t;
 
-/* Hash map structure */
-typedef struct hashmap
+/**
+ * struct hash_table_s - Hash table data structure
+ * @size: The size of the array
+ * @array: An array of size @size
+ * Each cell of this array is a pointer to the first node of a linked list,
+ * because we want our HashTable to use a Chaining collision handling
+ */
+typedef struct hash_table_s
 {
-    size_t size;
-    hashmap_entry_t **buckets;
-} hashmap_t;
+    unsigned long int size;
+    hash_node_t **array;
+} hash_table_t;
 
-/* =========================
-   Function prototypes
-   ========================= */
+/* Function prototype */
+hash_table_t *hash_table_create(unsigned long int size);
 
-/* Create and destroy */
-hashmap_t *hashmap_create(size_t size);
-void hashmap_destroy(hashmap_t *map);
-
-/* Core operations */
-int hashmap_set(hashmap_t *map, key_t key, value_t value);
-value_t hashmap_get(const hashmap_t *map, key_t key);
-int hashmap_delete(hashmap_t *map, key_t key);
-
-/* Utility */
-size_t hashmap_hash(const char *key);
-
-#endif /* HASHMAP_H */
+#endif /* HASH_TABLES_H */
